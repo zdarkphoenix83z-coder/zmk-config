@@ -1,34 +1,9 @@
-name: Build ZMK
+name: ZMK Build
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Init and update
-        run: |
-          west init -l config
-          west update
-
-      - name: Build left
-        run: |
-          west build -d build/left -b nice_nano_v2 -s zmk/app -- \
-            -DSHIELD="urchin_left nice_view_adapter nice_view" \
-            -DZMK_CONFIG=config
-
-      - name: Build right
-        run: |
-          west build -d build/right -b nice_nano_v2 -s zmk/app -- \
-            -DSHIELD="urchin_right nice_view_adapter nice_view" \
-            -DZMK_CONFIG=config
-
-      - name: Build reset
-        run: |
-          west build -d build/reset -b nice_nano_v2 -s zmk/app -- \
-            -DSHIELD="settings_reset" \
-            -DZMK_CONFIG=config
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@stable
