@@ -1,0 +1,21 @@
+name: Build ZMK
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build firmware
+        uses: docker://zmkfirmware/zmk-build-arm:3.5
+        with:
+          args: >
+            bash -c "
+            west init -l config &&
+            west update &&
+            west build -s app -b nice_nano_v2 -- -DZMK_CONFIG=config
+            "
