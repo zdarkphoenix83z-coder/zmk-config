@@ -1,0 +1,2 @@
+config SHIELD_T440S
+    def_bool y
