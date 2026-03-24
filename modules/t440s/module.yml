@@ -1,0 +1,4 @@
+name: t440s
+build:
+  cmake: .
+  kconfig: Kconfig

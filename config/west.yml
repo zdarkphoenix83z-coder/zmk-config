@@ -7,7 +7,14 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       revision: main
-      import: app/west.yml   # 🔥 QUAN TRỌNG
+      import: app/west.yml
 
   self:
     path: config
+
+  # 🔥 THÊM PHẦN NÀY
+  groups:
+    - name: modules
+      projects:
+        - name: t440s
+          path: modules/t440s
