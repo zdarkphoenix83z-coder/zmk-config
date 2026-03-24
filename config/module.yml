@@ -1,4 +1,4 @@
-name: t440s
+name: zmk-config
 build:
   cmake: .
   kconfig: Kconfig
