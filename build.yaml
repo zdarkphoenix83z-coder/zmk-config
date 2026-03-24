@@ -3,3 +3,6 @@ include:
   - board: nice_nano
     shield: t440s
     artifact-name: t440s
+
+# 🔥 THÊM DÒNG NÀY
+config: config
